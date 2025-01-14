@@ -1,0 +1,100 @@
+#root {
+  max-width: 1280px;
+  margin: 0;
+  text-align: center;
+}
+
+.leaflet-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 65vw;
+}
+
+.app-container {
+  height: 100vh;
+
+  .leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+    width: fit-content !important;
+  }
+  .leaflet-popup-content-wrapper {
+    padding: 0;
+  }
+
+  .sideBarMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35vw;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    h2 {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5em;
+      margin: 0;
+      padding: 1em 0;
+      background-color: #f1f1f1;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+  .searchbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 25em;
+    top: 1.2em;
+    left: 6em;
+    z-index: 9999;
+  }
+
+  .marker-cluster-custom {
+    width: 3em;
+    height: 3em;
+    background: #9370db;
+    border: 0.2em solid whitesmoke;
+    border-radius: 50%;
+    color: whitesmoke;
+    line-height: 38px;
+    /* Ugly */
+    text-align: center;
+  }
+
+  .popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22em;
+
+    .postHeader {
+      background-color: #1423DC;
+      padding: 0;
+      border-radius: 1em 1em 0 0;
+      flex-basis: 100%;
+      width: 100%;
+
+      h2 {
+        margin: 0;
+        padding: 0;
+        color: #FFF;
+        font-size: x-small;
+        margin: 0.5em 0 0 2.5em ;
+        height: 1.5em;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,41 @@
+.postCard {
+  margin: 1em;
+  padding-left: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+
+  .postTitle {
+    flex-basis: 100%;
+
+    h3 {
+      margin: 0;
+      font-size: large;
+    }
+    h4 {
+      margin: 0;
+      font-size: medium;
+      font-weight: normal;
+    }
+  }
+  .postField {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 10em;
+    height: 4em;
+
+    h5 {
+      margin: 0;
+      font-size: medium;
+      font-style: oblique;
+    }
+    div {
+      font-size: 1.1em;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+Poste,Artere_1,Branche_1,Racco_1,Artere_2,Branche_2,Racco_2,Adresse,Fonction
+75100P0001,100,A,Oui,100,B,Non,"Pl. de l'Opéra, 75009 Paris",Distribution publique
+75100P0002,101,B,Non,101,C,Non,"2 Rue Ronsard, 75018 Paris",Client
+75100P0003,102,C,Oui,102,D,Oui,"5 Rue Curial, 75019 Paris",Client
+75100P0004,103,D,Oui,103,E,Non,"44 Rue Archereau, 75019 Paris",Client
+75100P0005,104,E,Oui,104,F,Non,"2 Av. de la Cascade, 75019 Paris",Client
+75100P0006,105,F,Non,105,G,Oui,"47 Rue des Couronnes, 75020 Paris",Client
+75100P0007,106,G,Oui,106,H,Non,"19-21 Rue Boyer, 75020 Paris",Client
+75100P0008,107,H,Oui,107,I,Non,"15 Rue Malte Brun, 75020 Paris",Distribution publique
+75100P0009,108,I,Oui,108,J,Oui,"51 Av. Gambetta, 75020 Paris",Client
+75100P0010,109,J,Non,109,K,Non,"6 Rue Belgrand, 75020 Paris",Client
+75100P0011,110,K,Oui,110,L,Non,"136 Rue de Charonne, 75011 Paris",Client
+75100P0012,111,L,Oui,111,M,Oui,"64 Rue Alexandre Dumas, 75011 Paris",Client
+75100P0013,112,M,Oui,112,N,Non,"2 Rue Hector Malot, 75012 Paris",Client
+75100P0014,113,N,Non,113,O,Non,"2 Pl. Jeanne d'Arc, 75013 Paris",Client
+75100P0015,114,O,Oui,114,P,Oui,1 Pl. du Panthéon,Distribution publique
+75100P0016,115,P,Oui,115,Q,Non,"51 Rue Froidevaux, 75014 Paris",Distribution publique
+75100P0017,116,Q,Oui,116,R,Non,,Distribution publique
+75100P0018,117,R,Non,117,S,Oui,,Distribution publique
+75100P0019,118,S,Oui,118,T,Non,,Distribution publique

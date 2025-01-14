@@ -1,0 +1,46 @@
+.subSideMenu {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border: #9370db;
+  list-style: none;
+
+  button {
+    display: block;
+    width: 33%;
+    padding: 1em 0;
+    border-radius: 0%;
+    background-color: #1423DC;
+    color: #FFF;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  .button-active {
+    background-color: darkgreen;
+    opacity: 0.95;
+  }
+}
+
+.subSideSearch {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  h3 {
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    height: 3em;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
