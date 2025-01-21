@@ -52,7 +52,6 @@ const App = () => {
     <div className='app-container'>
 
       <SideBarMenu />
-
       <MapContainer center={EnedisPosition} zoom={12} placeholder>
       <SearchBar />
       <ListenPost />
