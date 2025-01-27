@@ -9,7 +9,7 @@ const GetAdressOnClickMap = () => {
         map.locate()
       },
       locationfound: (location) => {
-        // console.log('location found:', location)
+        console.log('location found:', location)
       },
     })
     return null

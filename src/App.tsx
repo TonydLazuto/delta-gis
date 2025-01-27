@@ -26,7 +26,7 @@ const App = () => {
     usePostsStore.getState().getDanyPosts()
   }, [])
 
-  const createClusterCustomIcon = (cluster) => {
+  const createClusterCustomIcon = (cluster: any) => {
     return L.divIcon({
       html: `<span>${cluster.getChildCount()}</span>`,
       className: 'marker-cluster-custom',

@@ -3,9 +3,9 @@ import { DanyPoste, SIGPoste } from "../../interfaces/interfaces"
 import { Button } from '@mui/material'
 
 interface CompareMsgProps {
-  comparedSIGPost: SIGPoste
-  comparedDanyPost: DanyPoste
-  gdoPoste: string
+  comparedSIGPost: SIGPoste | undefined
+  comparedDanyPost: DanyPoste | undefined
+  gdoPoste: string | undefined
   handleCompare: () => void
 }
 
