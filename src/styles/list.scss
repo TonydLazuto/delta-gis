@@ -3,11 +3,12 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 20px;
   gap: 1em;
+  padding-bottom: 1.7em;
   height: fit-content;
-  overflow: scroll;
-  scrollbar-width: none;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  overflow-x: hidden;
   
   h3 {
     padding: 0.7em 0 ;
@@ -16,7 +17,7 @@
     background-color: green;
     color: white;
     box-shadow: 0 2px 9px rgba(0, 0, 0, 0.9);
-    text-shadow: 0 8px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 3px 2px rgba(0, 0, 0, 0.5);
   }
 
   .postListItem {
@@ -26,6 +27,12 @@
     width: 90%;
     border-radius: 0.5em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);;
+    }
     p {
         width: 6em;
     }

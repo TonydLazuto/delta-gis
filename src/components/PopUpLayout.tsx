@@ -13,8 +13,6 @@ interface PopUpLayoutProps {
   date_de_MEX?: string;
 }
 
-//TODO: implement logic to compare posts
-
 const PopUpLayout = ({
   gdoPoste,
   artere1,

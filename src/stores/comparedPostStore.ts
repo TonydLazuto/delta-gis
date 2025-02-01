@@ -1,6 +1,5 @@
 import { create } from "zustand"
 import { DanyPoste, SIGPoste } from "../interfaces/interfaces"
-// import { usePostsStore } from "./postStore"
 
 type ComparedPostStoreType = {
   danyPost: DanyPoste | undefined

@@ -34,7 +34,7 @@ const SearchBar = () => {
         setShowMarker(false)
         setCoordMarker([0, 0])
         //TODO: fade out marker
-      }, 3000)
+      }, 5000)
     }
   }, [showMarker])
   return (
