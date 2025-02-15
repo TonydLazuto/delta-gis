@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import { usePostsStore } from '../stores/postStore';
 
+// Listen to posteStore when sendCoordToMapLeaflet() from <List />
 const ListenPost = () => {
   const map = useMap();
   const mapCoord = usePostsStore((state) => state.mapCoord);

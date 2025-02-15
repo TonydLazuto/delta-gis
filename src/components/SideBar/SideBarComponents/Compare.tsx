@@ -1,5 +1,5 @@
-import { useComparedPostStore } from '../../stores/comparedPostStore';
-import '../../styles/compareCard.scss';
+import { useComparedPostStore } from '../../../stores/comparedPostStore';
+import '../../../styles/compareCard.scss';
 
 const Compare = () => {
   const comparedSIGPost = useComparedPostStore((state) => state.SIGPost);

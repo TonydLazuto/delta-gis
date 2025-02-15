@@ -7,10 +7,9 @@ import { useEffect } from 'react'
 import SearchBar from './components/SearchBar'
 import SideBarMenu from './components/SideBar/SideBarMenu'
 import { MarkerClusterGroupProps } from './interfaces/interfaces'
-import PopUpLayout from './components/PopUpLayout'
+import PopUpLayout from './components/PopupComponents/PopUpLayout'
 import generatorIcon from './assets/generator.png'
 import sigGeneratorIcon from './assets/sigGenerator.png'
-import GetAdressOnClickMap from './components/GetAdressOnClickMap'
 import { usePostsStore } from './stores/postStore'
 import ListenPost from './components/ListenPost'
 
@@ -56,7 +55,6 @@ const App = () => {
       <MapContainer center={EnedisPosition} zoom={12} placeholder>
       <SearchBar />
       <ListenPost />
-       <GetAdressOnClickMap />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

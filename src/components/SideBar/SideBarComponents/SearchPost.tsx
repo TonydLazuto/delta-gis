@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material'
 // import { useState } from 'react'
-import '../../styles/subSideMenu.scss';
+import '../../../styles/subSideMenu.scss';
 
 const SearchPost = () => {
   // const [searchSource, setSearchSource] = useState('SIG') // SIG ou DANY

@@ -1,8 +1,8 @@
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import { useEffect, useState } from 'react';
-import List from '../SideBarComponents/List';
-import Compare from '../SideBarComponents/Compare';
-import SearchPost from '../SideBarComponents/SearchPost';
+import List from './SideBarComponents/List';
+import Compare from './SideBarComponents/Compare';
+import SearchPost from './SideBarComponents/SearchPost';
 import '../../styles/subSideMenu.scss';
 import { useComparedPostStore } from '../../stores/comparedPostStore';
 

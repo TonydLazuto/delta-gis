@@ -1,4 +1,4 @@
-import '../styles/postCard.scss';
+import '../../styles/postCard.scss';
 
 interface PostCardProps {
   gdoPoste?: string;

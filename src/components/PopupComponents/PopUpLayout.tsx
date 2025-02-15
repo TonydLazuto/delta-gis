@@ -1,7 +1,7 @@
 import { Popup } from 'react-leaflet';
-import { useComparedPostStore } from '../stores/comparedPostStore';
-import { usePostsStore } from '../stores/postStore';
-import CompareMsg from './SideBar/CompareMsg';
+import { useComparedPostStore } from '../../stores/comparedPostStore';
+import { usePostsStore } from '../../stores/postStore';
+import CompareMsg from './CompareMsg';
 import PostCard from './PostCard';
 
 interface PopUpLayoutProps {

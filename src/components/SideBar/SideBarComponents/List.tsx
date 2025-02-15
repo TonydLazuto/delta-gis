@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { usePostsStore } from '../../stores/postStore';
-import '../../styles/list.scss';
+import { usePostsStore } from '../../../stores/postStore';
+import '../../../styles/list.scss';
 
 const List = () => {
   const danyPosts = usePostsStore((state) => state.danyPosts);
@@ -9,7 +9,8 @@ const List = () => {
     usePostsStore.getState().getDanyPosts();
     usePostsStore.getState().getSIGPosts();
   }, [])
-  
+
+
   const sendCoordToMapLeaflet = (lat: number, long: number) => {
     if (!lat || !long) {
       console.error('No coordinates on this Post');
