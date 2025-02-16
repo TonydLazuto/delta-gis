@@ -1,8 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { usePostsStore } from '../../../stores/postStore';
 import '../../../styles/list.scss';
+import generatorIcon from '../../../assets/generator.png'
+import sigGeneratorIcon from '../../../assets/sigGenerator.png'
 
 const List = () => {
+  const [subMenu, setSubMenu] = useState('Danyweb')
   const danyPosts = usePostsStore((state) => state.danyPosts);
   const sigPosts = usePostsStore((state) => state.SIGPosts);
   useEffect(() => {
@@ -18,37 +21,62 @@ const List = () => {
     }
     usePostsStore.getState().sendCoordToMapLeaflet(lat, long);
   };
+
+  const selectSubMenu = (subMenu: string) => {
+    setSubMenu(subMenu)
+  }
+
   return (
     <div className="listContainer">
-      <h3>Postes Danyweb</h3>
-      {danyPosts.map((post) => (
+      <div className='subSideMenu'>
         <button
-          className="postListItem"
-          key={post.poste}
-          onClick={() => sendCoordToMapLeaflet(post.lat, post.long)}
+          onClick={() => selectSubMenu('Danyweb')}
+          className={subMenu === 'Danyweb' ? 'button-active' : ''}
         >
-          <p>{post.poste}</p>
-          <p>{post.fonction}</p>
-          <p>
-            {post.artere_1}, {post.artere_2}
-          </p>
+          <img src={generatorIcon} className='iconPost' alt="generatorIcon"/>
+          <span>Postes Danyweb</span>
         </button>
-      ))}
-      <h3>Postes SIG</h3>
-      {sigPosts.map((post) => (
         <button
-          className="postListItem"
-          key={post.poste}
-          onClick={() => sendCoordToMapLeaflet(post.lat, post.long)}
+        className={subMenu === 'SIG' ? 'button-active' : ''}
+          onClick={() => selectSubMenu('SIG')}
         >
-          <p>{post.poste}</p>
-          <p>{post.fonction}</p>
-          <p>
-            {post.artere_1}, {post.artere_2}
-          </p>
+          <img src={sigGeneratorIcon} className='iconPost' alt="sigGeneratorIcon"/>
+          <span>Postes SIG</span>
         </button>
-      ))}
-    </div>
+      </div >
+      <div className="listPosts">
+        {
+          subMenu === 'Danyweb' && (danyPosts.map((post) => (
+            <button
+              className="postListItem"
+              key={post.poste}
+              onClick={() => sendCoordToMapLeaflet(post.lat, post.long)}
+            >
+              <p>{post.poste}</p>
+              <p>{post.fonction}</p>
+              <p>
+                {post.artere_1}, {post.artere_2}
+              </p>
+            </button>
+          )))
+        }
+        {
+          subMenu === 'SIG' && (sigPosts.map((post) => (
+            <button
+              className="postListItem"
+              key={post.poste}
+              onClick={() => sendCoordToMapLeaflet(post.lat, post.long)}
+            >
+              <p>{post.poste}</p>
+              <p>{post.fonction}</p>
+              <p>
+                {post.artere_1}, {post.artere_2}
+              </p>
+            </button>
+          )))
+        }
+      </div>
+    </div >
   );
 };
 

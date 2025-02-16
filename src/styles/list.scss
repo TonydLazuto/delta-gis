@@ -2,39 +2,76 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 99%;
   gap: 1em;
-  padding-bottom: 1.7em;
-  height: fit-content;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  overflow-x: hidden;
-  
-  h3 {
-    padding: 0.7em 0 ;
-    font-size: 1.5rem;
+  height: 81vh; // approximatif height
+
+  .subSideMenu {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    background-color: green;
-    color: white;
-    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.9);
-    text-shadow: 0 3px 2px rgba(0, 0, 0, 0.5);
+
+    button {
+      font-size: 1.1rem;
+      width: 100%;
+      height: 3em;
+      background-color: #1423DC;
+      color: white;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 0.4em;
+      align-items: center;
+
+      &:hover {
+        opacity: 0.9;
+        cursor: pointer;
+      }
+      border: none;
+      box-shadow: 0 2px 9px rgba(0, 0, 0, 0.4);
+      text-shadow: 0 3px 2px rgba(0, 0, 0, 0.5);
+
+      .iconPost {
+        width: 1em;
+        height: 1em;
+      }
+    }
+    .button-active {
+      background-color: darkgreen;
+      opacity: 0.95;
+    }
   }
 
-  .postListItem {
+  .listPosts {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    width: 90%;
-    border-radius: 0.5em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: none;
-    &:hover {
-      cursor: pointer;
-      background-color: rgba(0, 0, 0, 0.1);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);;
-    }
-    p {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    overflow-x: hidden;
+    height: fit-content;
+    gap: 1em;
+
+    .postListItem {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 90%;
+      border-radius: 0.5em;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        ;
+      }
+
+      p {
         width: 6em;
+      }
     }
   }
 }
