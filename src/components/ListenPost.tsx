@@ -40,10 +40,11 @@ const ListenPost = () => {
 
   useEffect(() => {
     if (mapCoord.length === 0 || mapCoord === undefined) {
-      console.log('Error on coordinates when ListenPost');
       if (danyPosts.length !== 0) {
         usePostsStore.getState().setSnackbarState(true);
+        return;
       }
+      console.log('Error on coordinates when ListenPost');
       return;
     }
     map.setView({ lat: mapCoord[0], lng: mapCoord[1] }, 17, { animate: true });

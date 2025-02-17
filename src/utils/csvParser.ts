@@ -5,10 +5,10 @@ import {
   SIGFileData,
   SIGPoste,
 } from "../interfaces/interfaces";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 export const getCsv = (csvFile: string): Promise<[]> => {
-    console.log("csvFile:", csvFile);
+  // console.log("csvFile:", csvFile);
   return new Promise((resolve, reject) => {
     Papa.parse(csvFile, {
       download: true,
@@ -24,7 +24,17 @@ export const getCsv = (csvFile: string): Promise<[]> => {
   });
 };
 
-export const getGeocode = async (
+const printErrorApiAdresseResponse = (error: unknown) => {
+  const { code } = error as AxiosError;
+    if (code === 'ERR_NETWORK') {
+      console.error('https://api-adresse.data.gouv.fr is not reachable right now');
+    }
+    else {
+      console.error("Error fetching address data:", error);
+    }
+}
+
+export const geocode = async (
   adresse: string
 ): Promise<[number, number]> => {
   if (!adresse) {
@@ -37,12 +47,12 @@ export const getGeocode = async (
   const cleanAdresse = adresse.replace(/ /g, "+").replace(/,/g, "");
   const apiUrl =
     "https://api-adresse.data.gouv.fr/search/?q=" + cleanAdresse + "&limit=15";
-  console.log("apiUrl:", apiUrl);
+  // console.log("apiUrl:", apiUrl);
   let response = null;
   try {
     response = await axios.get(apiUrl);
   } catch (error) {
-    console.error("Error fetching address data:", error);
+    printErrorApiAdresseResponse(error);
     return [0, 0];
   }
   const long = response.data.features[0].geometry.coordinates[0];
@@ -54,18 +64,34 @@ export const getDanyPosts = async (): Promise<DanyPoste[]> => {
   const dany: DanyFileData[] = await getCsv("csv/Dany.csv");
   const postes: DanyPoste[] = await Promise.all(
     dany.map(async (element) => {
-      const [lat, long] = await getGeocode(element?.Adresse);
-      return {
-        poste: element.Poste,
-        artere_1: element?.Artere_1 + element?.Branche_1,
-        racco_1: element.Racco_1 === "Oui" ? true : false,
-        artere_2: element?.Artere_2 + element?.Branche_2,
-        racco_2: element.Racco_2 === "Oui" ? true : false,
-        lat: lat,
-        long: long,
-        fonction: element.Fonction,
-        adresse: element.Adresse,
-      };
+      try {
+        const [lat, long] = await geocode(element?.Adresse);
+        return {
+          poste: element.Poste,
+          artere_1: element?.Artere_1 + element?.Branche_1,
+          racco_1: element.Racco_1 === "Oui" ? true : false,
+          artere_2: element?.Artere_2 + element?.Branche_2,
+          racco_2: element.Racco_2 === "Oui" ? true : false,
+          lat: lat,
+          long: long,
+          fonction: element.Fonction,
+          adresse: element.Adresse,
+        };
+      }
+      catch (error) {
+        printErrorApiAdresseResponse(error);
+        return {
+          poste: element.Poste,
+          artere_1: element?.Artere_1 + element?.Branche_1,
+          racco_1: element.Racco_1 === "Oui" ? true : false,
+          artere_2: element?.Artere_2 + element?.Branche_2,
+          racco_2: element.Racco_2 === "Oui" ? true : false,
+          lat: 0,
+          long: 0,
+          fonction: element.Fonction,
+          adresse: element.Adresse,
+        };
+      }
     })
   );
   return postes;

@@ -2,7 +2,7 @@
 import { Search } from '@mui/icons-material';
 import { Box, InputAdornment, TextField } from '@mui/material';
 import { useCallback, useEffect, useState } from 'react';
-import { getGeocode } from '../utils/csvParser';
+import { geocode } from '../utils/csvParser';
 import { Marker, Popup, useMap } from 'react-leaflet';
 import { LatLngTuple } from 'leaflet';
 
@@ -21,7 +21,8 @@ const SearchBar = () => {
   ) => {
     e.preventDefault();
     if (searchAddress.trim() === '') return;
-    getGeocode(searchAddress).then((newCoord) => {
+    console.log('searchAddress:', searchAddress)
+    geocode(searchAddress).then((newCoord) => {
       setCoordMarker(newCoord)
       setShowMarker(true)
       map.setView(newCoord, 17, { animate: true })
