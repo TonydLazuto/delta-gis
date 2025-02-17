@@ -5,6 +5,9 @@ import Compare from './SideBarComponents/Compare';
 import SearchPost from './SideBarComponents/SearchPost';
 import '../../styles/subSideMenu.scss';
 import { useComparedPostStore } from '../../stores/comparedPostStore';
+import searchIcon from '../../assets/search.png';
+import compareIcon from '../../assets/compare.png';
+import listIcon from '../../assets/list.png';
 
 const SideBarMenu = () => {
   const [subMenu, setSubMenu] = useState('list')
@@ -28,19 +31,22 @@ const SideBarMenu = () => {
             onClick={() => selectSubMenu('list')}
             className={subMenu === 'list' ? 'button-active' : ''}
           >
-            Liste
+            <img src={listIcon} className='iconPost' alt="listIcon"/>
+            <span>Liste</span>
           </button>
           <button
             onClick={() => selectSubMenu('compare')}
             className={subMenu === 'compare' ? 'button-active' : ''}
           >
-            Comparateur
+            <img src={compareIcon} className='iconPost' alt="compareIcon"/>
+            <span>Comparateur</span>
           </button>
           <button
             onClick={() => selectSubMenu('searchPost')}
             className={subMenu === 'searchPost' ? 'button-active' : ''}
           >
-            Recherche
+            <img src={searchIcon} className='iconPost' alt="searchIcon"/>
+            <span>Recherche</span>
           </button>
         </div>
         {subMenu === 'list' && <List />}

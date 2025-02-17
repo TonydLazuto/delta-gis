@@ -1,5 +1,9 @@
 import { useComparedPostStore } from '../../../stores/comparedPostStore';
 import '../../../styles/compareCard.scss';
+import generatorIcon from '../../../assets/generator.png';
+import sigGeneratorIcon from '../../../assets/sigGenerator.png';
+import mapIcon from '../../../assets/map.png';
+import searchIcon from '../../../assets/search.png';
 
 const Compare = () => {
   const comparedSIGPost = useComparedPostStore((state) => state.SIGPost);
@@ -8,7 +12,7 @@ const Compare = () => {
   return (
     <div className="compareContainer">
       {comparedSIGPost && comparedDanyPost ? (
-        <div className="compareCardContainer">
+        <div className="compareCardContainer fade-in-right-normal">
           <h3>
             <span>Comparaison de poste</span>
             <p>
@@ -37,10 +41,10 @@ const Compare = () => {
                   {comparedDanyPost.artere_1}, {comparedDanyPost.artere_2}
                 </p>
                 {comparedSIGPost.artere_1 && <>
-                <p>/</p>
-                <p className="SIGText">
-                  {comparedSIGPost.artere_1}, {comparedSIGPost.artere_2}
-                </p>
+                  <p>/</p>
+                  <p className="SIGText">
+                    {comparedSIGPost.artere_1}, {comparedSIGPost.artere_2}
+                  </p>
                 </>}
               </div>
             </div>
@@ -61,9 +65,31 @@ const Compare = () => {
           </div>
         </div>
       ) : (
-        <h3>
-          Selectionnez un Poste a comparer sur la Carte ou dans la Recherche
-        </h3>
+        <div className="compareCardContainer compareCardContainerTemplate vibrate-1-normal">
+          <h3>
+            Comment comparer des postes ?
+          </h3>
+          <div className="compareCard compareCardTemplate">
+            <div className='compareField compareFieldTemplate'>
+              <p>
+                <span style={{ marginRight: "0.2em" }}>Selectionnez un</span>
+                <img src={sigGeneratorIcon} className='iconPost' alt="sigGeneratorIcon" />
+                <span style={{ margin: "0 0.2em", textDecoration: "underline" }}>Poste</span>
+                <img src={generatorIcon} className='iconPost' alt="generatorIcon" /><br />
+              </p>
+              <p>
+                <span>à comparer sur la </span>
+                <img src={mapIcon} className='iconPost' alt="mapIcon" />
+                <span style={{ marginLeft: "0.2em", textDecoration: "underline" }}>Carte</span><br />
+              </p>
+              <p>
+                <span>ou dans la </span>
+                <img src={searchIcon} className='iconPost' alt="searchIcon" />
+                <span style={{ marginLeft: "0.2em", textDecoration: "underline" }}>Recherche</span>.
+              </p>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
