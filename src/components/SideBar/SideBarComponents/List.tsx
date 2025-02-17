@@ -16,7 +16,8 @@ const List = () => {
 
   const sendCoordToMapLeaflet = (lat: number, long: number) => {
     if (!lat || !long) {
-      console.error('No coordinates on this Post');
+      console.log('No coordinates on this Post');
+      usePostsStore.getState().setSnackbarState(true);
       return;
     }
     usePostsStore.getState().sendCoordToMapLeaflet(lat, long);

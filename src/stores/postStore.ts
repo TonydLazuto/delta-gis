@@ -6,9 +6,11 @@ type PostsStore = {
   danyPosts: DanyPoste[];
   SIGPosts: SIGPoste[];
   mapCoord: number[];
+  snackbarState: boolean;
   getDanyPosts: () => Promise<DanyPoste[]>;
   getSIGPosts: () => Promise<SIGPoste[]>;
   sendCoordToMapLeaflet: (lat: number, long: number) => void;
+  setSnackbarState: (snackbarState: boolean) => void;
 };
 
 export const usePostsStore = create<PostsStore>((set) => {
@@ -16,6 +18,7 @@ export const usePostsStore = create<PostsStore>((set) => {
     danyPosts: [],
     SIGPosts: [],
     mapCoord: [],
+    snackbarState: false,
     getDanyPosts: async () => {
       const dany: DanyPoste[] = await getDanyPosts();
       set((state) => ({ ...state, danyPosts: dany }));
@@ -29,5 +32,8 @@ export const usePostsStore = create<PostsStore>((set) => {
     sendCoordToMapLeaflet: (lat: number, long: number) => {
       set((state) => ({ ...state, mapCoord: [lat, long] }));
     },
+    setSnackbarState: (curSnackbarState) => {
+      set((state) => ({ ...state, snackbarState: curSnackbarState }));
+    }
   };
 });
