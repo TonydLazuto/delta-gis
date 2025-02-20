@@ -6,6 +6,10 @@
   gap: 1em;
   height: 81vh; // approximatif height
 
+  button {
+    transition: 0.2s;
+  }
+
   .subSideMenu {
     display: flex;
     justify-content: space-between;
@@ -22,6 +26,7 @@
       justify-content: center;
       gap: 0.4em;
       align-items: center;
+      transition: 0.2s;
 
       &:hover {
         opacity: 0.9;
