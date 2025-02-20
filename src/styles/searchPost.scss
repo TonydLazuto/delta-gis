@@ -16,12 +16,12 @@
 }
 
 .fade-in-top-normal {
-  animation: fade-in-top-normal 1s ease-in 0s 1 normal forwards;
+  animation: fade-in-top-normal 0.8s ease-in 0s 1 normal forwards;
 }
 
 .fade-in-top-normal-delay {
   opacity: 0;
-  animation: fade-in-top-normal 1s ease-in 400ms 1 normal forwards;
+  animation: fade-in-top-normal 0.8s ease-in 300ms 1 normal forwards;
 }
 
 .searchPostContainer {
@@ -30,6 +30,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1em;
   margin-top: 1em;
 
   .subSideSearch {
@@ -56,4 +57,82 @@
     }
   }
 
+  .blur {
+    filter: blur(0.15em);
+  }
+
+  .searchPostCardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 80%;
+    height: 80%;
+
+    h3 {
+      width: 100%;
+      margin-bottom: 0;
+      height: 2em;
+      text-align: left;
+      background-color: #1423dc;
+      border-radius: 1em 1em 0 0;
+      color: white;
+      font-size: small;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+
+      span {
+        margin-left: 1.5em;
+      }
+    }
+
+    .searchPostCard {
+      width: 100%;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      padding-top: 1em;
+      gap: 0.7em;
+      font-size: 0.6em;
+      border-radius: 0 0 1em 1em;
+      box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+
+      .searchPostField {
+        margin-left: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        border-bottom: 1px solid #ccc;
+        max-width: 85%;
+
+        h4 {
+          margin: 0;
+          font-size: medium;
+          flex-basis: 100%;
+        }
+
+        h5 {
+          margin: 0;
+          font-size: medium;
+          font-style: oblique;
+        }
+
+        div {
+          display: flex;
+          width: 100%;
+          justify-content: start;
+          align-items: center;
+          gap: 0.8em;
+        }
+      }
+
+      .searchPostField:last-child {
+        margin-bottom: 2em;
+      }
+    }
+  }
 }
