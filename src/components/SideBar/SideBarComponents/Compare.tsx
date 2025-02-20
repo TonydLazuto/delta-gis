@@ -4,11 +4,16 @@ import generatorIcon from '../../../assets/generator.png';
 import sigGeneratorIcon from '../../../assets/sigGenerator.png';
 import mapIcon from '../../../assets/map.png';
 import searchIcon from '../../../assets/search.png';
+import { Button } from '@mui/material';
 
 const Compare = () => {
   const comparedSIGPost = useComparedPostStore((state) => state.SIGPost);
   const comparedDanyPost = useComparedPostStore((state) => state.danyPost);
 
+  const handleCompare = () => {
+    useComparedPostStore.getState().setDanyPost(undefined);
+    useComparedPostStore.getState().setSIGPost(undefined);
+  };
   return (
     <div className="compareContainer">
       {comparedSIGPost && comparedDanyPost ? (
@@ -62,6 +67,20 @@ const Compare = () => {
                 <div>{comparedSIGPost.date_de_MEX}</div>
               </div>
             )}
+            <Button variant="contained"
+              sx={{
+                alignSelf: 'center',
+                width: '90%',
+                margin: '1em 0',
+                backgroundColor: 'darkRed',
+                '&:hover': {
+                  backgroundColor: 'red',
+                },
+              }}
+              onClick={handleCompare}
+            >
+              Annuler la comparaison
+            </Button>
           </div>
         </div>
       ) : (
