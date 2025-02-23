@@ -1,39 +1,112 @@
-import { MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material'
+import { Box, Button, IconButton, InputAdornment, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material'
 import '../../../styles/subSideMenu.scss';
 import '../../../styles/searchPost.scss';
-import { useState } from 'react';
 import '../../../styles/postCard.scss';
+import React, { useState } from 'react';
+import { usePostsStore } from '../../../stores/postStore';
+import { DanyPoste, SIGPoste } from '../../../interfaces/interfaces';
+import { Search } from '@mui/icons-material';
+import Snackbar, { SnackbarCloseReason } from '@mui/material/Snackbar';
+import CloseIcon from '@mui/icons-material/Close';
+
+interface PostData {
+  gdoPoste: string
+  artere1: string
+  artere2: string
+  fonction: string
+  adresse: string
+  date_de_MEX: string
+  lat: number
+  long: number
+}
 
 const SearchPost = () => {
   const [searchSource, setSearchSource] = useState('SIG') // SIG ou DANY
   const [searchNature, setSearchNature] = useState('Poste') // Poste ou Artere
-  const [gdoPoste, setGdoPoste] = useState('PlaceHolder')
-  const [artere1, setArtere1] = useState('PlaceHolder')
-  const [artere2, setArtere2] = useState('PlaceHolder')
-  const [fonction, setFonction] = useState('PlaceHolder')
-  const [adresse, setAdresse] = useState('PlaceHolder')
-  const [date_de_MEX, setDate_de_MEX] = useState('PlaceHolder')
+  const [searchPost, setSearchPost] = useState('')
+  const [postData, setPostData] = useState<PostData>({
+    gdoPoste: 'PlaceHolder',
+    artere1: 'PlaceHolder',
+    artere2: 'PlaceHolder',
+    fonction: 'PlaceHolder',
+    adresse: 'PlaceHolder',
+    date_de_MEX: 'PlaceHolder',
+    lat: 0,
+    long: 0
+  })
+  const [blur, setBlur] = useState(true);
+  const snackbarState = usePostsStore((state) => state.snackbarState);
 
-  const [blur, setBlur] = useState(true)
+  const danyPosts = usePostsStore((state) => state.danyPosts);
+  const sigPosts = usePostsStore((state) => state.SIGPosts);
 
   const handleChangeSource = (event: SelectChangeEvent<string>) => {
     event.preventDefault()
-    if (event.target.value === 'SIG') {
-      setSearchSource('SIG')
-    }
-    else if (event.target.value === 'DANY') {
-      setSearchSource('DANY')
-    }
+    setSearchSource(event.target.value as 'SIG' | 'DANY')
   }
   const handleChangeNature = (event: SelectChangeEvent<string>) => {
     event.preventDefault()
-    if (event.target.value === 'Poste') {
-      setSearchNature('Poste')
-    }
-    // else if (event.target.value === 'Artere') {
-    //   setSearchNature('Artere')
-    // }
+    setSearchNature(event.target.value as 'Poste' | 'Artere')
   }
+
+  const instanceOfSIGPoste = (post: SIGPoste | DanyPoste): post is SIGPoste => {
+    return true;
+  }
+
+  const handleChangePostSIG = (post: SIGPoste) => {
+    const { poste, artere_1, artere_2, fonction, adresse, date_de_MEX, lat, long } = post
+    setPostData(prevState => ({
+      ...prevState,
+      gdoPoste: poste,
+      artere1: artere_1,
+      artere2: artere_2,
+      fonction: fonction,
+      adresse: adresse,
+      date_de_MEX: date_de_MEX,
+      lat: lat,
+      long: long
+    }))
+  }
+  const handleChangePostDany = (post: DanyPoste) => {
+    const { poste, artere_1, artere_2, fonction, adresse, lat, long } = post
+    setPostData(prevState => ({
+      ...prevState,
+      gdoPoste: poste,
+      artere1: artere_1,
+      artere2: artere_2,
+      fonction: fonction,
+      adresse: adresse,
+      date_de_MEX: '',
+      lat: lat,
+      long: long
+    }))
+  }
+
+  const handleSubmit = (e: React.MouseEvent<SVGSVGElement, MouseEvent> | React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (searchPost.trim() === '') return;
+    const posts = searchSource === 'SIG' ? sigPosts : danyPosts
+    const post = posts.find(post => post.poste === searchPost)
+    if (post) {
+      if (instanceOfSIGPoste(post)) {
+        handleChangePostSIG(post)
+      }
+      else {
+        handleChangePostDany(post)
+      }
+      setBlur(false)
+      console.log('Post found:', post)
+    }
+    else {
+      usePostsStore.getState().setSnackbarState(true);
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    setSearchPost(e.target.value)
+  }
+
   const selectStyle = {
     width: '25%',
     '& fieldset': {
@@ -42,12 +115,12 @@ const SearchPost = () => {
   }
   const textFieldStyle = {
     backgroundColor: 'white',
-    width: '50%',
+    width: '100%',
     '& .MuiOutlinedInput-notchedOutline': {
       border: 'none', // Supprime la bordure
     },
     "& input::placeholder": {
-      fontSize: "90%"
+      fontSize: "70%"
     },
     '& .MuiOutlinedInput-root': {
       '&:hover fieldset': {
@@ -60,6 +133,42 @@ const SearchPost = () => {
       }, // Bordure au focus
     },
   }
+
+  const handleClose = (
+    event: React.SyntheticEvent | Event,
+    reason?: SnackbarCloseReason,
+  ) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    usePostsStore.getState().setSnackbarState(false);
+  };
+
+  const action = (
+    <React.Fragment>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
+
+  const sendCoordToMapLeaflet = (lat: number, long: number) => {
+    if (blur) return;
+    if (!lat || !long) {
+      console.log('No coordinates on this Post');
+      usePostsStore.getState().setSnackbarState(true);
+      return;
+    }
+    usePostsStore.getState().sendCoordToMapLeaflet(lat, long);
+  };
 
   return (
     <div className='searchPostContainer'>
@@ -86,14 +195,28 @@ const SearchPost = () => {
           <MenuItem value='Poste'>Poste</MenuItem>
           <MenuItem disabled>Artere</MenuItem>
         </Select>
-        <TextField
-          id='standard-basic'
-          hiddenLabel
-          placeholder={`Rechercher un ${searchNature} sur ${searchSource}`}
-          sx={textFieldStyle}
-          style={{ borderRadius: '1.2em' }}
-          variant="outlined"
-        />
+        <Box component="form" sx={{ width: '50%' }} onSubmit={e => handleSubmit(e)}>
+          <TextField
+            id='standard-basic'
+            hiddenLabel
+            placeholder={`Rechercher un ${searchNature} sur ${searchSource}`}
+            sx={textFieldStyle}
+            style={{ borderRadius: '1.2em' }}
+            variant="outlined"
+            onChange={handleChange}
+            slotProps={{
+              input: {
+                endAdornment: (
+                  <InputAdornment position="end" sx={{
+                    cursor: 'pointer'
+                  }}>
+                    <Search onClick={e => handleSubmit(e)} />
+                  </InputAdornment>
+                ),
+              },
+            }}
+          />
+        </Box>
       </div>
       <div className={`searchPostCardContainer fade-in-top-normal-delay ${blur ? 'blur' : ''}`}>
         <h3>
@@ -102,29 +225,43 @@ const SearchPost = () => {
         <div className="searchPostCard">
           <div className="searchPostField">
             <h4>NomDuPoste</h4>
-            <h4>{gdoPoste}</h4>
+            <h4>{postData.gdoPoste}</h4>
           </div>
           <div className="searchPostField">
             <h5>Adresse</h5>
-            <div>{adresse}</div>
+            <div>{postData.adresse}</div>
           </div>
           <div className="searchPostField">
             <h5>Arteres</h5>
             <div>
-              {artere1}
-              {artere2 && <>, {artere2}</>}
+              {postData.artere1}
+              {postData.artere2 && <>, {postData.artere2}</>}
             </div>
           </div>
           <div className="searchPostField">
             <h5>Fonction</h5>
-            <div>{fonction}</div>
+            <div>{postData.fonction}</div>
           </div>
-          {date_de_MEX && (
+          {postData.date_de_MEX && (
             <div className="searchPostField">
               <h5>Date de MEX</h5>
-              <div>{date_de_MEX}</div>
+              <div>{postData.date_de_MEX}</div>
             </div>
           )}
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => sendCoordToMapLeaflet(postData.lat, postData.long)}
+            sx={{
+              marginBottom: '1em',
+              alignSelf: 'center',
+              height: '2.5em',
+              fontSize: '0.8em',
+              marginTop: '0.7em',
+            }}
+          >
+            Aller sur la carte
+          </Button>
         </div>
       </div>
     </div>

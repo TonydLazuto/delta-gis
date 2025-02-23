@@ -55,7 +55,7 @@ const ListenPost = () => {
       open={snackbarState}
       autoHideDuration={3000}
       onClose={handleClose}
-      message="Ce poste n'a pas de Geometrie."
+      message="Ce poste est introuvable."
       action={action}
     />
   </div>;

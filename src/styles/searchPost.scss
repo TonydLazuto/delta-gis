@@ -58,7 +58,6 @@
     align-items: start;
     width: 90%;
     height: 80%;
-    // transition: all 0.2s ease-in;
 
     h3 {
       width: 100%;
@@ -88,7 +87,7 @@
       padding-top: 1em;
       gap: 0.7em;
       font-size: 0.8em;
-      border-radius: 0 0 1em 1em;
+    border-radius: 0 0 1em 1em;
       box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 
       .searchPostField {
@@ -98,16 +97,17 @@
         justify-content: start;
         align-items: start;
         border-bottom: 1px solid #ccc;
+        // gap: 2em;
 
         h4 {
           margin: 0;
-          font-size: medium;
+          font-size: large;
           flex-basis: 100%;
         }
 
         h5 {
           margin: 0;
-          font-size: medium;
+          font-size: large;
           font-style: oblique;
         }
 
@@ -116,7 +116,6 @@
           width: 100%;
           justify-content: start;
           align-items: center;
-          gap: 0.8em;
         }
       }
 

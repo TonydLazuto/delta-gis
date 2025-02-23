@@ -13,12 +13,12 @@
 
   .listContainerSubMenu {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
 
     button {
-      font-size: 1.1rem;
-      width: 100%;
+      font-size: 1em;
+      width: 47%;
       height: 3em;
       display: flex;
       flex-direction: row;
