@@ -1,10 +1,9 @@
 .listContainer {
   display: flex;
   flex-direction: column;
+  justify-content: start;
   align-items: center;
-  // margin-top: 1em;
   width: 99%;
-  max-height: fit-content;
   gap: 1em;
 
   button {
@@ -12,22 +11,26 @@
   }
 
   @media screen and (min-width: 320px) {
-   .listContainerSubMenu {
-      height: 5em;
+    .listContainerSubMenu {
+      min-height: 2em;
       button {
         font-size: 0.8em;
       }
     }
     .listPosts {
-      height: max-content;
+      max-height: 90%;
     }
   }
   @media screen and (min-width: 1000px) {
-   .listContainerSubMenu {
-      height: 7em;
+    .listContainerSubMenu {
+      height: 18%;
+      max-height: 4em;
       button {
         font-size: 1em;
       }
+    }
+    .listPosts {
+      min-height: 85%;
     }
   }
 
@@ -69,15 +72,12 @@
 
   .listPosts {
     width: 100%;
-    height: max-content;
-    max-height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     overflow-y: scroll;
     scrollbar-width: thin;
-    overflow-x: hidden;
     gap: 1em;
 
     .postListItem {
@@ -99,7 +99,7 @@
 
       &:focus {
         opacity: 0.95;
-        background-color: rgba(0, 0, 0, 0.2);;
+        background-color: rgba(0, 0, 0, 0.2);
       }
 
       p {
