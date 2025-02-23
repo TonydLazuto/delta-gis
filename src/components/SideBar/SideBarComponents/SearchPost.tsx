@@ -30,37 +30,37 @@ const SearchPost = () => {
     if (event.target.value === 'Poste') {
       setSearchNature('Poste')
     }
-    else if (event.target.value === 'Artere') {
-      setSearchNature('Artere')
-    }
+    // else if (event.target.value === 'Artere') {
+    //   setSearchNature('Artere')
+    // }
   }
   const selectStyle = {
-    // border: 'none', // Supprime la bordure
-    // outline: 'none', // Supprime le focus outline
-    // boxShadow: 'none', // Supprime l'ombre si nécessaire
+    width: '25%',
     '& fieldset': {
       border: 'none', // Supprime la bordure du fieldset
     },
-    // '&:hover fieldset': {
-    //   border: 'none', // Supprime la bordure au hover
-    // },
-    // '&.Mui-focused fieldset': {
-    //   border: 'none', // Supprime la bordure au focus
-    // },
-    // '& .MuiSelect-icon': {
-    //   color: 'blue',  // Change la couleur
-    //   fontSize: '14px', // Change la taille
-    // }
   }
   const textFieldStyle = {
     backgroundColor: 'white',
     width: '50%',
-    // borderRadius: '5em',
-    borderRadius: '7em',
-    '& fieldset': {
-      border: 'none', // Supprime la bordure du fieldset
+    '& .MuiOutlinedInput-notchedOutline': {
+      border: 'none', // Supprime la bordure
+    },
+    "& input::placeholder": {
+      fontSize: "90%"
+    },
+    '& .MuiOutlinedInput-root': {
+      '&:hover fieldset': {
+        border: '1px solid #DADDFC',
+        borderRadius: '1.2em'
+      }, // Bordure au survol
+      '&.Mui-focused fieldset': {
+        border: '1px solid #DADDFC',
+        borderRadius: '1.2em'
+      }, // Bordure au focus
     },
   }
+
   return (
     <div className='searchPostContainer'>
       <div className='subSideSearch fade-in-top-normal'>
@@ -71,7 +71,6 @@ const SearchPost = () => {
           label="Source"
           onChange={(event: SelectChangeEvent<string>) => handleChangeSource(event)}
           sx={selectStyle}
-          className='&.Mui-focused fieldset'
         >
           <MenuItem value='SIG'>SIG</MenuItem>
           <MenuItem value='DANY'>DANY</MenuItem>
@@ -85,13 +84,15 @@ const SearchPost = () => {
           sx={selectStyle}
         >
           <MenuItem value='Poste'>Poste</MenuItem>
-          <MenuItem value='Artere'>Artere</MenuItem>
+          <MenuItem disabled>Artere</MenuItem>
         </Select>
         <TextField
           id='standard-basic'
           hiddenLabel
-          placeholder={`Rechercher un Poste sur SIG`}
-          style={textFieldStyle}
+          placeholder={`Rechercher un ${searchNature} sur ${searchSource}`}
+          sx={textFieldStyle}
+          style={{ borderRadius: '1.2em' }}
+          variant="outlined"
         />
       </div>
       <div className={`searchPostCardContainer fade-in-top-normal-delay ${blur ? 'blur' : ''}`}>

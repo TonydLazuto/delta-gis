@@ -58,6 +58,49 @@
   width: 100%;
   height: 100%;
 
+  @media screen and (min-width: 320px) {
+    h3 {
+      font-size: 0.7em;
+    }
+    h4, h5 {
+      font-size: 1em;
+    }
+    .compareField div {
+      font-size: 0.8em;
+    }
+    .compareFieldTemplate {
+      font-size: 1em
+    }
+  }
+  @media screen and (min-width: 1000px) {
+    h3 {
+      font-size: 1em;
+    }
+    h4, h5 {
+      font-size: 1em;
+    }
+    .compareField div {
+      font-size: 0.8em;
+    }
+    .compareFieldTemplate {
+      font-size: 1.4em;
+    }
+  }
+  @media screen and (min-width: 1500px) {
+    h3 {
+      font-size: 1.3em;
+    }
+    h4, h5 {
+      font-size: 1.4em;
+    }
+    .compareField div {
+      font-size: 1.2em;
+    }
+    .compareFieldTemplate {
+      font-size: 1.7em;
+    }
+  }
+
   .compareCardContainer {
     display: flex;
     flex-direction: column;
@@ -96,7 +139,6 @@
       align-items: start;
       padding-top: 1em;
       gap: 0.5em;
-      font-size: 0.6em;
       border-radius: 0 0 1em 1em;
       box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 
@@ -110,12 +152,10 @@
         max-width: 85%;
         h4 {
           margin: 0;
-          font-size: medium;
           flex-basis: 100%;
         }
         h5 {
           margin: 0;
-          font-size: medium;
           font-style: oblique;
         }
         div {
@@ -141,10 +181,12 @@
   }
 
   .compareCardContainerTemplate {
-    height: 40%;
+    height: 30%;
+    width: 90%;
 
     h3 {
-      font-size: large;
+      height: 2em;
+      // font-size: large;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -154,26 +196,25 @@
     }
 
     .compareCardTemplate {
-      height: 100%;
+      height: 80%;
       display: flex;
       justify-content: center;
       align-items: center;
 
       .compareFieldTemplate {
+        width: 90%;
         transform: translateY(10%);
         padding-bottom: 0.5em;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: x-large;
         margin: 0;
         text-align: start;
         gap: 0.2em;
         p {
-          margin: 0;
+          margin: 1%;
         }
         .iconPost {
-          // padding-top: 0.5em;
           width: 0.7em;
           height: 0.7em;
         }

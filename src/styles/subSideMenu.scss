@@ -1,7 +1,7 @@
 .subSideMenu {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 0;
   margin: 0;
@@ -11,28 +11,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.4em;
-    font-size: 1.1rem;
-    width: 33%;
+    gap: 0.6em;
+    font-size: 0.8rem;
+    width: 28%;
     padding: 1em 0;
     border-radius: 0%;
-    background-color: #1423DC;
-    color: #FFF;
+    background-color: #fafafa;
+    color: black;
     border: none;
     transition: 0.2s;
+    border-radius: 0.5em;
 
     &:hover {
       opacity: 0.9;
+      background-color: #f1f2f3;
       cursor: pointer;
     }
+    &:focus {
+      background-color: #DADDFC;
+      opacity: 0.95;
+    }
+
     .iconPost {
       width: 1em;
       height: 1em;
     }
   }
-
   .button-active {
-    background-color: darkgreen;
+    background-color: #DADDFC;
     opacity: 0.95;
   }
 }
