@@ -28,10 +28,9 @@
   width: 95%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  gap: 1em;
-  margin-top: 1em;
+  gap: 1em;;
 
   .subSideSearch {
     width: 100%;
@@ -57,7 +56,7 @@
     justify-content: start;
     align-items: start;
     width: 90%;
-    height: 80%;
+    height: max-content;
 
     h3 {
       width: 100%;

@@ -171,7 +171,7 @@ const SearchPost = () => {
   };
 
   return (
-    <div className='searchPostContainer'>
+    <div className='subSideContainer searchPostContainer'>
       <div className='subSideSearch fade-in-top-normal'>
         <Select
           labelId="Source-simple-select-label"

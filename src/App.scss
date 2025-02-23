@@ -26,14 +26,26 @@ body {
 
     h2 {
       width: 100%;
+      height: 7vh;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 0.5em;
       margin: 0;
-      padding: 1em 0;
+      padding: 0;
       background-color: #f1f1f1;
       border-bottom: 1px solid #ccc;
+    }
+
+    .subSideMenu {
+      height: 4vh;
+      button {
+        height: 100%;
+      }
+    }
+
+    .subSideContainer {
+      height: 85vh;
     }
   }
 

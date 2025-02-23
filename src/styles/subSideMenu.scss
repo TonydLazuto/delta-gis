@@ -1,45 +1,67 @@
-.subSideMenu {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+.sideBarMenu {
 
-  button {
+  @media screen and (min-width: 320px) {
+    .subSideMenu {
+      button {
+        font-size: 0.6em;
+      }
+     }
+     .listPosts {
+       height: max-content;
+     }
+   }
+   @media screen and (min-width: 1000px) {
+    .subSideMenu {
+      button {
+        font-size: 0.9em;
+      }
+     }
+   }
+
+  .subSideMenu {
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 0.6em;
-    font-size: 0.8rem;
-    width: 28%;
-    padding: 1em 0;
-    border-radius: 0%;
-    background-color: #fafafa;
-    color: black;
-    border: none;
-    transition: 0.2s;
-    border-radius: 0.5em;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 
-    &:hover {
-      opacity: 0.9;
-      background-color: #f1f2f3;
-      cursor: pointer;
+    button {
+      width: 28%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6em;
+      padding: 1em 0;
+      border-radius: 0%;
+      background-color: #fafafa;
+      color: black;
+      border: none;
+      transition: 0.2s;
+      border-radius: 0.5em;
+
+      &:hover {
+        opacity: 0.9;
+        background-color: #f1f2f3;
+        cursor: pointer;
+      }
+      &:focus {
+        background-color: #DADDFC;
+        opacity: 0.95;
+      }
+
+      .iconPost {
+        width: 1em;
+        height: 1em;
+      }
     }
-    &:focus {
+    .button-active {
       background-color: #DADDFC;
       opacity: 0.95;
     }
+  }
 
-    .iconPost {
-      width: 1em;
-      height: 1em;
-    }
-  }
-  .button-active {
-    background-color: #DADDFC;
-    opacity: 0.95;
-  }
+
 }
-

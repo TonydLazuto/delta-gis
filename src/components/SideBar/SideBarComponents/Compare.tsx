@@ -15,7 +15,7 @@ const Compare = () => {
     useComparedPostStore.getState().setSIGPost(undefined);
   };
   return (
-    <div className="compareContainer">
+    <div className="subSideContainer compareContainer">
       {comparedSIGPost && comparedDanyPost ? (
         <div className="compareCardContainer fade-in-right-normal">
           <h3>
