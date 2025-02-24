@@ -17,6 +17,7 @@ const ListenPost = () => {
     reason?: SnackbarCloseReason,
   ) => {
     if (reason === 'clickaway') {
+      console.log(event);
       return;
     }
     usePostsStore.getState().setSnackbarState(false);

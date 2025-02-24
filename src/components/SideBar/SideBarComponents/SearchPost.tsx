@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, InputAdornment, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material'
+import { Box, Button, InputAdornment, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material'
 import '../../../styles/subSideMenu.scss';
 import '../../../styles/searchPost.scss';
 import '../../../styles/postCard.scss';
@@ -6,8 +6,6 @@ import React, { useState } from 'react';
 import { usePostsStore } from '../../../stores/postStore';
 import { DanyPoste, SIGPoste } from '../../../interfaces/interfaces';
 import { Search } from '@mui/icons-material';
-import Snackbar, { SnackbarCloseReason } from '@mui/material/Snackbar';
-import CloseIcon from '@mui/icons-material/Close';
 
 interface PostData {
   gdoPoste: string
@@ -35,7 +33,6 @@ const SearchPost = () => {
     long: 0
   })
   const [blur, setBlur] = useState(true);
-  const snackbarState = usePostsStore((state) => state.snackbarState);
 
   const danyPosts = usePostsStore((state) => state.danyPosts);
   const sigPosts = usePostsStore((state) => state.SIGPosts);
@@ -50,6 +47,7 @@ const SearchPost = () => {
   }
 
   const instanceOfSIGPoste = (post: SIGPoste | DanyPoste): post is SIGPoste => {
+    if (post) console.log('poste :', post.poste)
     return true;
   }
 
@@ -133,32 +131,6 @@ const SearchPost = () => {
       }, // Bordure au focus
     },
   }
-
-  const handleClose = (
-    event: React.SyntheticEvent | Event,
-    reason?: SnackbarCloseReason,
-  ) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    usePostsStore.getState().setSnackbarState(false);
-  };
-
-  const action = (
-    <React.Fragment>
-      <Button color="secondary" size="small" onClick={handleClose}>
-        UNDO
-      </Button>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleClose}
-      >
-        <CloseIcon fontSize="small" />
-      </IconButton>
-    </React.Fragment>
-  );
 
   const sendCoordToMapLeaflet = (lat: number, long: number) => {
     if (blur) return;
