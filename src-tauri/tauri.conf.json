@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "delta-dany",
+  "productName": "delta-gis",
   "version": "0.1.0",
-  "identifier": "com.delta-dany.app",
+  "identifier": "com.delta-gis.app",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "delta-dany",
+        "title": "delta-gis",
         "width": 800,
         "height": 600
       }

@@ -716,7 +716,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "delta-dany"
+name = "delta-gis"
 version = "0.1.0"
 dependencies = [
  "serde",
