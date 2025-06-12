@@ -26,7 +26,7 @@ Delta-GIS offers a modern, portable, and fast solution to facilitate the databas
 ```bash
 git clone https://github.com/TonydLazuto/delta-gis.git
 cd delta-gis
-npm install
+npm ci
 npm run dev
 ⚠️ Requires Node.js ≥ 18 (pnpm recommended)
 ```
