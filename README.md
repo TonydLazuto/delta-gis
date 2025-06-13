@@ -31,6 +31,8 @@ npm run dev
 ⚠️ Requires Node.js ≥ 18 (pnpm recommended)
 ```
 
+## 🛠️ How to Build it => [Build Guide](BUILD.md)
+
 ### 📂 Project Structure
 
 src\
