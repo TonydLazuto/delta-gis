@@ -87,12 +87,6 @@ pnpm tauri build
 .deb or .AppImage depending on configuration
 ```
 
-## 🚀 Useful Commands
-Action	Command
-Launch dev mode	pnpm tauri dev
-Full build	pnpm tauri build
-Clean previous builds	pnpm tauri clean
-
 ## 📂 Build Output Structure
 src-tauri/\
 ┗━ target/\
