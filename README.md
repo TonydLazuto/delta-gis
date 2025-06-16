@@ -17,21 +17,19 @@ Delta-GIS offers a modern, portable, and fast solution to facilitate the databas
 
 ## 📷 Demo
 
-### Video Demo
-<video controls width="550">
-  <source src="./src/assets/screens/Screencast.webm" type="video/webm" />
-</video>
+### 📹 Animated Demo
+<img src="./src/assets/screens/screencast.gif" alt="screencast" />
 
-### Overview Hompage
+### 🏠 Overview – Homepage
 ![screenshot](./src/assets/screens/Screenshot-1.png)
 
-### From the click to the list, zoom in map electrical transformer and compare data from the 2 sources
+### 🔎 Click on an electrical transformer to zoom into its location on the map + compare its data between the two electrical reference systems (SIG / Dany)
 <img src='./src/assets/screens/Screenshot-2.png' alt='screenCast' width='450em' height='auto' /> <img src='./src/assets/screens/Screenshot-3.png' alt='screenCast' width='450em' height='auto' />
 
-### Find the electrical transformers by ID and compare data from the 2 sources
+### 🆔 Search for an electrical transformer by ID
 <img src='./src/assets/screens/Screenshot-4.png' alt='screenCast' width='450em' height='auto' /> <img src='./src/assets/screens/Screenshot-5.png' alt='screenCast' width='450em' height='auto' />
 
-### Geocoding an address to find an electrical transformer around
+### 📍 Geocode an address to locate nearby electrical transformers
 <img src='./src/assets/screens/Screenshot-6.png' alt='screenCast' width='500em' height='auto' />
 
 
@@ -72,9 +70,9 @@ src\
 
 ## 📈 Future Goals
 
-🚫 Exclude identical electrical transformer data from comparisons (to avoid unnecessary checks).
-🏗️ Detect and track resolved inconsistencies between electrical transformers, with progress indicators.
-📊 Display weekly statistics using charts and diagrams.
+🚫 Exclude identical electrical transformer data from comparisons (to avoid unnecessary checks).\
+🏗️ Detect and track resolved inconsistencies between electrical transformers, with progress indicators.\
+📊 Display weekly statistics using charts and diagrams.\
 🔗 Extend comparison to include not only cables but also topological continuity.
 
 ## Nota Bene
