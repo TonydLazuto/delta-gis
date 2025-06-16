@@ -17,15 +17,22 @@ Delta-GIS offers a modern, portable, and fast solution to facilitate the databas
 
 ## 📷 Demo
 
-Vidéo
-![screenshot](./assets/screens/Screencast.webm)
-Photos
-![screenshot](./assets/screens/Screenshot-1.png)
-![screenshot](./assets/screens/Screenshot-2.png)
-![screenshot](./assets/screens/Screenshot-3.png)
-![screenshot](./assets/screens/Screenshot-4.png)
-![screenshot](./assets/screens/Screenshot-5.png)
-![screenshot](./assets/screens/Screenshot-6.png)
+### Video Demo
+<video controls width="550">
+  <source src="./src/assets/screens/Screencast.webm" type="video/webm" />
+</video>
+
+### Overview Hompage
+![screenshot](./src/assets/screens/Screenshot-1.png)
+
+### From the click to the list, zoom in map electrical transformer and compare data from the 2 sources
+<img src='./src/assets/screens/Screenshot-2.png' alt='screenCast' width='450em' height='auto' /> <img src='./src/assets/screens/Screenshot-3.png' alt='screenCast' width='450em' height='auto' />
+
+### Find the electrical transformers by ID and compare data from the 2 sources
+<img src='./src/assets/screens/Screenshot-4.png' alt='screenCast' width='450em' height='auto' /> <img src='./src/assets/screens/Screenshot-5.png' alt='screenCast' width='450em' height='auto' />
+
+### Geocoding an address to find an electrical transformer around
+<img src='./src/assets/screens/Screenshot-6.png' alt='screenCast' width='500em' height='auto' />
 
 
 ## 🚀 Installation & Local Development
@@ -65,8 +72,8 @@ src\
 
 ## 📈 Future Goals
 
-🚫 Exclude identical electric station data from comparisons (to avoid unnecessary checks).
-🏗️ Detect and track resolved inconsistencies between electric stations, with progress indicators.
+🚫 Exclude identical electrical transformer data from comparisons (to avoid unnecessary checks).
+🏗️ Detect and track resolved inconsistencies between electrical transformers, with progress indicators.
 📊 Display weekly statistics using charts and diagrams.
 🔗 Extend comparison to include not only cables but also topological continuity.
 
