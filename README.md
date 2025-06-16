@@ -17,8 +17,15 @@ Delta-GIS offers a modern, portable, and fast solution to facilitate the databas
 
 ## 📷 Demo
 
-![screenshot](./assets/screenshot.png)
-
+Vidéo
+![screenshot](./assets/screens/Screencast.webm)
+Photos
+![screenshot](./assets/screens/Screenshot-1.png)
+![screenshot](./assets/screens/Screenshot-2.png)
+![screenshot](./assets/screens/Screenshot-3.png)
+![screenshot](./assets/screens/Screenshot-4.png)
+![screenshot](./assets/screens/Screenshot-5.png)
+![screenshot](./assets/screens/Screenshot-6.png)
 
 
 ## 🚀 Installation & Local Development
@@ -48,7 +55,7 @@ src\
 - **Frontend** : React, TypeScript
 - **Build (local)** : Tauri
 - **Main libraries** : Leaflet, Zustand
-- **Styling** : Mui, Sass/Scss
+- **Styling** : Sass/Scss
 
 ### Known issues
 
@@ -62,3 +69,8 @@ src\
 🏗️ Detect and track resolved inconsistencies between electric stations, with progress indicators.
 📊 Display weekly statistics using charts and diagrams.
 🔗 Extend comparison to include not only cables but also topological continuity.
+
+## Nota Bene
+- Originally, this project started as a basic Leaflet prototype => [Leaflet-init-project](https://github.com/TonydLazuto/Leaflet-test/).\
+The Tauri integration came later as the project evolved.
+- The project was initially presented via this (fr) document => [Presentation](https://gamma.app/docs/Lapplication-pour-la-Gestion-des-Ecarts-de-Postes-i5addgtgjehnuu5?mode=doc)
